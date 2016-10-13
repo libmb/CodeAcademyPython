@@ -1,0 +1,51 @@
+from random import randint
+# create board
+board = []
+
+for x in range(0,5):
+    board.append(["O"] * 5)
+
+
+def print_board(board):
+    for row in board:
+        print(" ".join(row))
+
+# store coordinates for the ship *random
+
+
+def random_row(board):
+    return randint(0, len(board) - 1)
+
+
+def random_col(board):
+    return randint(0, len(board[0]) - 1)
+
+
+ship_row = random_row(board)
+ship_col = random_col(board)
+
+# Seek; player can guess by:
+# Python 3: raw input is now input
+guess_row = int(input("Guess Row: "))
+guess_col = int(input("Guess Col: "))
+
+# to debug, print the location of the battleship; remove when done
+print(ship_col)
+print(ship_row)
+
+# you win, if location is guessed:
+
+if guess_col == ship_col and guess_row == ship_row:
+    print("Congratulations! You sank my Battleship!")
+    # Guess is wrong:
+else:
+    print("You missed my battleship!")
+    board[guess_row][guess_col] = "X"
+
+print_board(board)
+
+# bad aim; only guess on the board:
+
+
+
+

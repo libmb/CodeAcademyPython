@@ -34,8 +34,8 @@ print (fizz_count(["fizz", "cat", "fizz", "bear"]))
 for letter in "Codecademy":
     print(letter)
 
-print
-print
+print()
+print()
 
 word = "Programming is fun!"
 

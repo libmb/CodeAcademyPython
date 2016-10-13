@@ -40,3 +40,42 @@ def average(numbers):
     total = sum(numbers)
     total = float(total)
     return total / len(numbers)
+
+# Weight and See; compute students average:
+
+
+def get_average(student):
+    homework = average(student["homework"])
+    quizzes = average(student["quizzes"])
+    tests = average(student["tests"])
+    return .10 * homework + .30 * quizzes + .60 * tests
+
+# sending a letter; takes number and returns string with letter grade
+
+
+def get_letter_grade(score):
+    if score >= 90:
+        return "A"
+    elif score >= 80:
+        return "B"
+    elif score >= 70:
+        return "C"
+    elif score >= 60:
+        return "D"
+    else:
+        return "F"
+
+print(get_letter_grade(get_average(lloyd)))
+
+# part of the whole; calculate class average:
+
+
+def get_class_average(students):
+    results = []
+    for student in students:
+        results.append(get_average(student))
+    return average(results)
+
+# How is everybody doing; print average and letter grade for average:
+print(get_class_average(students))
+print(get_letter_grade(get_class_average(students)))
