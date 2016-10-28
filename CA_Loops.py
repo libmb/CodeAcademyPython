@@ -20,14 +20,14 @@ while num < 11:
     num += 1
 
 
-active = True
-choice = input('Enjoying the course? (y/n)')
-while True:
-    # check input to see if valid; re-prompt
-    if choice != 'y' and choice != 'n':
-        choice = input("Sorry, I didn't catch that. Enter again: ")
-    else:
-        break
+#active = True
+#choice = input('Enjoying the course? (y/n)')
+# while True:
+#     # check input to see if valid; re-prompt
+#     if choice != 'y' and choice != 'n':
+#         choice = input("Sorry, I didn't catch that. Enter again: ")
+#     else:
+#         break
 
 
 count = 0
@@ -46,34 +46,34 @@ while True:
         break
 
 
-import random
-print("Lucky Numbers! 3 numbers will be generated.")
-print("If one of them is a '5', you lose!")
-count = 0
-while count < 3:
-    # example of while / else;
-    num = random.randint(1, 6)
-    print(num)
-    if num == 5:
-        print("Sorry, you lose!")
-        break
-    count += 1
-else:
-    print("You win!")
+# import random
+# print("Lucky Numbers! 3 numbers will be generated.")
+# print("If one of them is a '5', you lose!")
+# count = 0
+# while count < 3:
+#     # example of while / else;
+#     num = random.randint(1, 6)
+#     print(num)
+#     if num == 5:
+#         print("Sorry, you lose!")
+#         break
+#     count += 1
+# else:
+#     print("You win!")
 
 
-from random import randint
-random_number = randint(1, 10)
-guesses_left = 3
-while guesses_left > 0:
-    # use a while loop - guess number three times
-    guess = int(input("Take a guess!: "))
-    if guess == random_number:
-        print("You win!")
-        break
-    guesses_left = guesses_left -1
-else:
-    print("You lose.")
+# from random import randint
+# random_number = randint(1, 10)
+# guesses_left = 3
+# while guesses_left > 0:
+#     # use a while loop - guess number three times
+#     guess = int(input("Take a guess!: "))
+#     if guess == random_number:
+#         print("You win!")
+#         break
+#     guesses_left = guesses_left -1
+# else:
+#     print("You lose.")
 
 
 print("Counting...")
@@ -82,11 +82,11 @@ for i in range(20):
     print(i)
 
 
-hobbies = []
-for answer in range(3):
-    # for loop and append ** answer is key; cannot be hobby
-    hobby = input("What is your hobby?: ")
-    hobbies.append(hobby)
+# hobbies = []
+# for answer in range(3):
+#     # for loop and append ** answer is key; cannot be hobby
+#     hobby = input("What is your hobby?: ")
+#     hobbies.append(hobby)
 
 
 word = "eggs!"
@@ -171,8 +171,52 @@ def is_int(x):
         return False
 
 
+def digit_sum(n):
+    sum = 0
+    while n != 0:
+        sum += (n % 10)
+        n //= 10
+    return sum
+
+print(digit_sum(1234))
 
 
+def factorial(x):
+    # this example cascades the call stack- takes a long time, math done at end
+    if x == 0:
+        return 1
+    else:
+        return x * factorial(x-1)
+print(factorial(5))
 
+
+def factorial(x):
+    # this example does the math as it goes, much faster
+    num = x
+    while x > 1:
+        num = num * (x-1)
+        x = x-1
+    return num
+print(factorial(5))
+
+
+def is_prime(x):
+    if x < 2:
+        return False
+    for n in range(2, x-1):
+        if x % n == 0:
+            return False
+    return True
+
+
+def reverse(text):
+    changed = ""
+    position = len(text) - 1
+    while position >= 0:
+        changed += text[position]
+        position -= 1
+    return changed
+
+print(reverse("hello"))
 
 
