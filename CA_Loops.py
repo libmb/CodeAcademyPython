@@ -220,3 +220,132 @@ def reverse(text):
 print(reverse("hello"))
 
 
+def anti_vowel(text):
+    # return string without vowels
+    cons = text
+    for i in text:
+        if i in "aeiouAEIOU":
+            cons = cons.replace(i, "")
+    return cons
+
+
+score = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2,
+         "f": 4, "i": 1, "h": 4, "k": 5, "j": 8, "m": 3,
+         "l": 1, "o": 1, "n": 1, "q": 10, "p": 3, "s": 1,
+         "r": 1, "u": 1, "t": 1, "w": 4, "v": 4, "y": 4,
+         "x": 8, "z": 10}
+
+
+def scrabble_score(word):
+    # takes string and returns scrabble score for that word
+    tally = []
+    word = word.lower()
+    for i in word:
+        for key, value in score.items():
+            if i == key:
+                tally.append(value)
+    return sum(tally)
+
+print(scrabble_score("Angel"))
+
+
+# ASK ZAC!!!!!!!! 10. Censor
+
+# def censor(text, word):
+#    text.split()
+#    mult_num = len(word)
+#    for w in text:
+#        if w == word:
+#            w = "*" *mult_num
+#    return text.join(text)
+
+#    words = text.split(",")
+#    new_str = []
+#    mult = len(word)
+#    for w in words:
+#        if w == word:
+#            new_str += "*" * mult
+#        else:
+#            new_str += w
+#    return new_str
+
+#   cen_word = []
+#   mult = len(word)
+#   for w in text:
+#       if w == word:
+#           w = "*" * mult
+#           cen_word += w
+#       if w != word:
+#           cen_word =+ w
+#   return cen_word
+
+
+def censor(text, word):
+    if word in text:
+        text = text.replace(word, "*" * len(word))
+    return text
+
+print(censor("hey hey hey","hey"))
+print(censor("What the heck are you doing","heck"))
+
+
+def count (sequence, item):
+    tally = 0
+    for w in sequence:
+        if w == item:
+            tally += 1
+    return tally
+
+print(count([1,2,1,1],1))
+
+
+def purify(num):
+    # in a list of numbers, remove all of the odd numbers
+    # ZAC WHY PRINT []
+    even = []
+    for n in num:
+        if n % 2 == 0:
+            even.append(n)
+    return even
+
+print(purify([1,2,3]))
+
+
+def product(num):
+    total = 1
+    for n in num:
+        total *= n
+    return total
+
+print(product([4,5,5]))
+
+
+def remove_duplicates(var):
+    new_str = []
+    for i in var:
+        if i not in new_str:
+            new_str.append(i)
+    return new_str
+
+print(remove_duplicates([1,1,2,2]))
+
+# mark current place
+print("not working below")
+
+# ZAC HELP ME! NOTHING WORKS HERE!!!!!
+# def median(lst):
+#     s = sorted(lst)
+#     l = len(lst)/2
+#     if len(lst)%2 == 0:
+#         return (s[l] + s[l-1])/2.0
+#     else:
+#         return s[l]
+#
+# print(median([5,2,3,1,4]))
+
+# mark current place
+print("place holder")
+
+# END OF COURSE
+
+
