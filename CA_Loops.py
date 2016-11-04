@@ -249,37 +249,6 @@ def scrabble_score(word):
 print(scrabble_score("Angel"))
 
 
-# ASK ZAC!!!!!!!! 10. Censor
-
-# def censor(text, word):
-#    text.split()
-#    mult_num = len(word)
-#    for w in text:
-#        if w == word:
-#            w = "*" *mult_num
-#    return text.join(text)
-
-#    words = text.split(",")
-#    new_str = []
-#    mult = len(word)
-#    for w in words:
-#        if w == word:
-#            new_str += "*" * mult
-#        else:
-#            new_str += w
-#    return new_str
-
-#   cen_word = []
-#   mult = len(word)
-#   for w in text:
-#       if w == word:
-#           w = "*" * mult
-#           cen_word += w
-#       if w != word:
-#           cen_word =+ w
-#   return cen_word
-
-
 def censor(text, word):
     if word in text:
         text = text.replace(word, "*" * len(word))
@@ -301,14 +270,18 @@ print(count([1,2,1,1],1))
 
 def purify(num):
     # in a list of numbers, remove all of the odd numbers
-    # ZAC WHY PRINT []
     even = []
     for n in num:
         if n % 2 == 0:
             even.append(n)
     return even
 
+
+def purify2(numbers):
+    return [x for x in numbers if x % 2 == 0]
+
 print(purify([1,2,3]))
+print(purify2([2, 3, 4]))
 
 
 def product(num):
@@ -329,19 +302,16 @@ def remove_duplicates(var):
 
 print(remove_duplicates([1,1,2,2]))
 
-# mark current place
-print("not working below")
 
-# ZAC HELP ME! NOTHING WORKS HERE!!!!!
-# def median(lst):
-#     s = sorted(lst)
-#     l = len(lst)/2
-#     if len(lst)%2 == 0:
-#         return (s[l] + s[l-1])/2.0
-#     else:
-#         return s[l]
-#
-# print(median([5,2,3,1,4]))
+def median(lst):
+    s = sorted(lst)
+    l = len(lst)/2
+    if len(lst)%2 == 0:
+        return (s[l] + s[l-1])/2.0
+    else:
+        return s[int(l)]
+
+print(median([5,2,3,1,4]))
 
 # mark current place
 print("place holder")
