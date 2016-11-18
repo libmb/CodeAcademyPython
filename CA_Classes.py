@@ -125,9 +125,100 @@ class ShoppingCart(object):
 my_cart = ShoppingCart("Michelle")
 my_cart.add_item("lemon", 2)
 
+
 # == Inheritance
+# one class takes on the attributes of another class (is-a relationship)
+class Shape(object):
+    """Makes shapes!"""
+    def __init__(self, number_of_sides):
+        self.number_of_sides = number_of_sides
 
 
+# Add your Triangle class below!
+class Triangle(Shape):
+    # **(shape)** is the class from which the new class inherits
+    def __init__(self, side1, side2, side3):
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
 
 
+# create new class that inherits from employee
+# give class calculate_wage method that overrides employee
+# return part-time employees number of hours worked multiplied by 12.00
+# class Employee(object):
+#     """Models real-life employees!"""
+#     def __init__(self, employee_name):
+#         self.employee_name = employee_name
+#
+#     def calculate_wage(self, hours):
+#         self.hours = hours
+#         return hours * 20.00
 
+
+# Add your code below!
+# class PartTimeEmployee(Employee):
+#     def calculate_wage(self, hours):
+#         print(12.00 * self.hours)
+
+# ZAC HELP 14. THIS LOOKS LIKE A JOB FOR...
+# WRONG WRONG WRONG. BUT RIGHT?
+# if you need a method/attribute in the base class which was overwritten
+# use super call
+class Employee(object):
+    """Models real-life employees!"""
+    def __init__(self, employee_name):
+        self.employee_name = employee_name
+
+    def calculate_wage(self, hours):
+        self.hours = hours
+        return hours * 20.00
+
+
+class PartTimeEmployee(Employee):
+    def calculate_wage(self, hours):
+        print(12.00 * self.hours)
+
+    def full_time_wage(self, hours):
+        return super(PartTimeEmployee, self).calculate_wage(hours)
+
+
+milton = PartTimeEmployee("Milton")
+milton.full_time_wage(10)
+print(milton.full_time_wage)
+
+# REVIEW
+print("current place")
+# ZAC HELP WHAT THE HECK! *********
+
+
+class Triangle(object):
+    # 17
+    def __init__(self, angle1, angle2, angle3):
+        self.angle1 = angle1
+        self.angle2 = angle2
+        self.angle3 = angle3
+    number_of_sides = 3
+
+    def check_angles(self):
+        if self.angle1 + self.angle2 + self.angle3 == 180:
+            return True
+        else:
+            return False
+
+
+class Equilateral(Triangle):
+    # 18
+    angle = 60
+
+    def __init__(self):
+        self.angle1 = self.angle
+        self.angle2 = self.angle
+        self.angle3 = self.angle
+
+my_triangle = Triangle(90, 30, 60)
+print(my_triangle.number_of_sides)
+print(my_triangle.check_angles)
+
+print("End of Course")
+# EOC
